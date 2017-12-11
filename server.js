@@ -1,6 +1,7 @@
 const express=require('express');
 const hbs=require('hbs');
 const fs= require('fs');
+const PORT=process.env.PORT || 3000;
 var app=express();
 app.use((req,res,next)=>{
   //server wont have been done until call next();
@@ -65,8 +66,8 @@ app.use('/burden',(req,res)=>{
 
 
 //app.listen(3000);
-app.listen(3000,()=>{
-  console.log('Server up is on port 3000');
+app.listen(PORT,()=>{
+  console.log(`Server up is on port ${PORT}`);
 });
 //for hbs:handlebars packet
 hbs.registerPartials(__dirname + '/views/partials');
