@@ -13,10 +13,10 @@ app.use((req,res,next)=>{
   next();
 });
 
-app.use((req,res,next)=>{
-  res.render('maintenance.hbs');
-}
-);
+// app.use((req,res,next)=>{
+//   res.render('maintenance.hbs');
+// }
+// );
 app.use(express.static(__dirname+'/public'));
 
 //setup all of our HTTP route handlers.EX: if someone visits the root of website
@@ -53,6 +53,12 @@ app.get('/about',(req,res)=>{
 
       }
     );
+});
+app.get('/projects',(req,res)=>{
+    res.render('projects.hbs',
+    {
+      pageTitle:'Projects'
+    });
 });
 //express.static take an absolute path you want to serve up
 //dirname store the path to your projects directory E:\Udemy\node-web-server
